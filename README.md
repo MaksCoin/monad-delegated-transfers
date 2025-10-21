@@ -12,7 +12,9 @@ This project is a functional proof-of-concept demonstrating how to build a decen
 
 ## Live Demo
 
-You can run and test the live application on StackBlitz: **[https://stackblitz.com/edit/vitejs-vite-qkjuddrv](https://stackblitz.com/edit/vitejs-vite-qkjuddrv?file=src%2FApp.jsx)**
+You can run and test the live application on StackBlitz:
+
+**[▶️ Launch Live Demo on StackBlitz](https://stackblitz.com/edit/vitejs-vite-qkjuddrv)**
 
 ![Monad Delegated Transfers UI](https://i.imgur.com/ht6MqYV.png)
 ---
@@ -57,19 +59,28 @@ The workflow is designed to be secure and efficient:
     *   After the specified time delay, the order becomes "Ready".
     *   Any third party (a relayer, or in our demo, the user themselves) can now take the signed message.
     *   They call the `execute()` function on the public `DelegationManager` contract, passing the signed message as an argument.
-    *   The `DelegationManager` contract performs a series of critical checks:
-        *   It uses `ecrecover` to verify the signature against the message data, ensuring it was signed by the legitimate Smart Account owner.
-        *   It consults the specified `Enforcers` (like the `TimestampEnforcer`) to confirm all conditions are met (e.g., the time delay has passed).
-        *   If all checks pass, it initiates the MON transfer from the user's Smart Account to the recipient.
+    *   The `DelegationManager` contract performs a series of critical checks, including verifying the signature and consulting the specified `Enforcers` (like the `TimestampEnforcer`) to confirm all conditions are met.
 
 ---
 
 ## Tech Stack
 
-*   **Blockchain:** Monad Testnet
-*   **Wallet & Accounts:** MetaMask, MetaMask Smart Accounts (Delegation Framework)
-*   **Frontend:** React, Vite
-*   **Web3 Library:** ethers.js v6
+*   **Frontend:** React, Vite, Ethers.js
+*   **Smart Contracts:** Solidity, Foundry (for deployment)
+*   **Core Concepts:** MetaMask Delegation Framework, Account Abstraction (ERC-4337), EIP-712 Off-Chain Signing.
+
+---
+
+## Smart Contract Infrastructure & Deployment
+
+This project is not just a frontend; it includes the full Foundry setup used to deploy the entire MetaMask Delegation Framework to the Monad Testnet.
+
+All deployment scripts, transaction logs, and contract details are located in the **[`/deployment-scripts`](./deployment-scripts)** directory.
+
+The main contracts were deployed to the following addresses:
+- **DelegationManager**: `0xFA90aEBb2fF807110bCC87Df7409d8620b31Db4D`
+- **HybridDeleGatorImpl**: `0x43fDFaD85Bb8b869718771b5827682af0E0d71D0`
+- **TimestampEnforcer**: `0xeDb50A2eBAE418A4e7Cc44f5d5b233CB2eb318bF`
 
 ---
 
@@ -77,7 +88,7 @@ The workflow is designed to be secure and efficient:
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/your-username/monad-delegated-transfers.git
+    git clone https://github.com/MaksCoin/monad-delegated-transfers.git
     cd monad-delegated-transfers
     ```
 2.  **Install dependencies:**
