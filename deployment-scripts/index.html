@@ -1,0 +1,5 @@
+const DELEGATION_MANAGER = '0xFA90aEBb2fF807110bCC87Df7409d8620b31Db4D';  // Твой Manager
+const TIMESTAMP_ENFORCER = '0xeDb50A2eBAE418A4e7Cc44f5d5b233CB2eb318bF';  // Твой Timestamp
+const ERC20_TRANSFER_ENFORCER = '0xb60F9B98dF4CAe55A55151EDD5b303fEfc9b0964';  // Для ERC20 scope, если используешь
+const NATIVE_TRANSFER_ENFORCER = '0x94Cc25F0d8C20EB22820a1a8b5EDEb104c6DB5Ff';  // Для MON transfer
+// Добавь в caveats: enforcer: TIMESTAMP_ENFORCER, terms: viem.encodeAbiParameters([{type: 'uint256'}], [BigInt(executeAfter)])
