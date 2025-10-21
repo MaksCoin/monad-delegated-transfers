@@ -10,24 +10,20 @@ This project is a functional proof-of-concept demonstrating how to build a decen
 
 ---
 
-## 🚀 Live Demo
+## Live Demo
 
-You can run and test the live application on StackBlitz:
-
-**[▶️ Launch Live Demo](https://stackblitz.com/edit/vitejs-vite-qkjuddrv)**  *(Replace with your actual StackBlitz link)*
-
-![Project Screenshot](https://i.imgur.com/G5gJ33o.png) *(Suggestion: Add a screenshot of your running application here)*
+You can run and test the live application on StackBlitz: **([https://stackblitz.com/edit/vitejs-vite-qkjuddrv](https://stackblitz.com/edit/vitejs-vite-qkjuddrv?file=src%2FApp.jsx))**
 
 ---
 
-## 🎯 The Problem
+## The Problem
 
 In today's DeFi landscape, automating payments remains a challenge:
 *   **Scheduling transactions** requires either complex, gas-intensive smart contracts (keepers) or reliance on centralized services.
 *   Users must pay gas for every future action, creating friction.
 *   There is no simple, trustless way to say, "I want to send X tokens to address Y in 24 hours," without locking funds in an escrow or setting up a complex multisig.
 
-## ✅ Our Solution
+## Our Solution
 
 **Monad Delegated Transfers** leverages the power of **MetaMask Smart Accounts** and the **Delegation Framework** to solve this problem.
 
@@ -35,10 +31,10 @@ Our application allows users to create "delegated orders"—signed, off-chain me
 
 ### Key Features
 
-*   **🔗 Seamless Onboarding:** Connects with MetaMask and switches to the Monad Testnet.
-*   **🤖 Smart Account Interaction:** Simulates the creation of a Smart Account and allows users to fund it.
-*   **✍️ Off-Chain Order Creation:** Users define a recipient, amount, and delay. The application then creates an EIP-712 typed data structure which the user signs with their wallet—**this signature happens entirely off-chain and costs no gas**.
-*   **💾 Local Persistence:** Signed orders are stored in the browser's `localStorage`, demonstrating a full user session.
+*   **Seamless Onboarding:** Connects with MetaMask and switches to the Monad Testnet.
+*   **Smart Account Interaction:** Simulates the creation of a Smart Account and allows users to fund it.
+*   **Off-Chain Order Creation:** Users define a recipient, amount, and delay. The application then creates an EIP-712 typed data structure which the user signs with their wallet—**this signature happens entirely off-chain and costs no gas**.
+*   **Local Persistence:** Signed orders are stored in the browser's `localStorage`, demonstrating a full user session.
 *   **Execute by Anyone ("Relayer Model"):** Once the time delay has passed, a button appears, allowing anyone to submit the signed message to the `DelegationManager` contract, which then executes the transfer from the user's Smart Account.
 
 ---
@@ -67,7 +63,7 @@ The workflow is designed to be secure and efficient:
 
 ---
 
-## 💻 Tech Stack
+## Tech Stack
 
 *   **Blockchain:** Monad Testnet
 *   **Wallet & Accounts:** MetaMask, MetaMask Smart Accounts (Delegation Framework)
@@ -76,7 +72,7 @@ The workflow is designed to be secure and efficient:
 
 ---
 
-## ⚙️ Running the Project Locally
+## Running the Project Locally
 
 1.  **Clone the repository:**
     ```bash
@@ -95,7 +91,7 @@ The workflow is designed to be secure and efficient:
 
 ---
 
-## 🧠 Hackathon Choices & Next Steps
+## Hackathon Choices & Next Steps
 
 To deliver a functional proof-of-concept within the hackathon's timeframe, we made several strategic simplifications.
 
