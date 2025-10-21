@@ -13,7 +13,7 @@ This project is a functional proof-of-concept demonstrating how to build a decen
 ## Live Demo
 
 You can run and test the live application on StackBlitz: **[https://stackblitz.com/edit/vitejs-vite-qkjuddrv](https://stackblitz.com/edit/vitejs-vite-qkjuddrv?file=src%2FApp.jsx)**
-
+![Project Screenshot](https://imgur.com/a/lUHNtxK)
 ---
 
 ## The Problem
