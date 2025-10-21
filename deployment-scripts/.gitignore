@@ -1,0 +1,5 @@
+.env
+node_modules/
+cache/
+broadcast/Deploy*/*.json  # Только sensitive, но ниже скопируем очищенные
+*.log
