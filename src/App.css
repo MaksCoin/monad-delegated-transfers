@@ -1,0 +1,177 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #1a1a2e; /* Темный фон */
+  color: #e0e0e0;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+.App {
+  background-color: #16213e; /* Чуть светлее темный фон */
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  max-width: 900px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+h1,
+h2,
+h3 {
+  color: #0f3460; /* Синий заголовок */
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.section {
+  background-color: #0f3460; /* Фон секции */
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  margin-bottom: 20px;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+button {
+  background-color: #e94560; /* Красная кнопка */
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover:not(:disabled) {
+  background-color: #b7334a;
+}
+
+button:disabled {
+  background-color: #6c5a61;
+  cursor: not-allowed;
+}
+
+input[type='text'],
+input[type='number'] {
+  width: calc(100% - 22px);
+  padding: 10px;
+  margin-top: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #3e2f5b; /* Темная рамка */
+  border-radius: 6px;
+  background-color: #2e243f; /* Темный фон инпута */
+  color: #e0e0e0;
+  font-size: 14px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #ccc;
+  font-size: 14px;
+}
+
+.status-message {
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.status-message.success {
+  background-color: #28a74533; /* Зеленый для успеха */
+  color: #28a745;
+}
+
+.status-message.error {
+  background-color: #dc354533; /* Красный для ошибки */
+  color: #dc3545;
+}
+
+.status-message.info {
+  background-color: #007bff33; /* Синий для информации */
+  color: #007bff;
+}
+
+.address-display {
+  background-color: #2e243f;
+  padding: 10px;
+  border-radius: 6px;
+  word-break: break-all;
+  font-family: monospace;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.order-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.order-item {
+  background-color: #1a1a2e;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #0f3460;
+}
+
+.order-item p {
+  margin: 5px 0;
+  font-size: 13px;
+}
+
+.order-item .status-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.order-item .status-badge.pending {
+  background-color: #ffc107; /* Желтый */
+  color: #333;
+}
+
+.order-item .status-badge.ready {
+  background-color: #28a745; /* Зеленый */
+  color: white;
+}
+.order-item .status-badge.executed {
+  background-color: #6f42c1; /* Фиолетовый */
+  color: white;
+}
+.order-item .status-badge.failed {
+  background-color: #dc3545; /* Красный */
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .App {
+    padding: 20px;
+  }
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+}
