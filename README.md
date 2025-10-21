@@ -39,7 +39,7 @@ Our application allows users to create "delegated orders"—signed, off-chain me
 
 ---
 
-## 🛠️ How It Works (Architecture)
+## How It Works (Architecture)
 
 The workflow is designed to be secure and efficient:
 
