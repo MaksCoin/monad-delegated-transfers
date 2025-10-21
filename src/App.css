@@ -1,177 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --font-sans: 'Inter', sans-serif;
+  --bg-dark: #0D0F1A;
+  --bg-card: rgba(22, 25, 40, 0.7);
+  --border-color: rgba(255, 255, 255, 0.1);
+  --primary-accent: #A855F7;
+  --primary-accent-dark: #6D28D9;
+  --text-primary: #F3F4F6;
+  --text-secondary: #9CA3AF;
+  --text-tertiary: #6B7280;
+  --status-ready: #22C55E;
+  --status-pending: #F59E0B;
+  --status-executed: #8B5CF6;
+  --status-failed: #EF4444;
+  --glow-color: rgba(168, 85, 247, 0.5);
+}
+
+/* 2. Базовые стили */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #1a1a2e; /* Темный фон */
-  color: #e0e0e0;
   margin: 0;
-  padding: 20px;
+  padding: 40px 20px;
+  font-family: var(--font-sans);
+  background: var(--bg-dark);
+  background-image: 
+    radial-gradient(circle at 15% 15%, var(--glow-color), transparent 25%),
+    radial-gradient(circle at 85% 75%, var(--glow-color), transparent 25%);
+  color: var(--text-primary);
   display: flex;
   justify-content: center;
   align-items: flex-start;
   min-height: 100vh;
 }
 
+/* 3. Основной контейнер приложения */
 .App {
-  background-color: #16213e; /* Чуть светлее темный фон */
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-  max-width: 900px;
   width: 100%;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 30px;
-}
-
-h1,
-h2,
-h3 {
-  color: #0f3460; /* Синий заголовок */
-  text-align: center;
-  margin-bottom: 25px;
-}
-
-.section {
-  background-color: #0f3460; /* Фон секции */
-  padding: 25px;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-  margin-bottom: 20px;
-}
-
-.button-group {
+  max-width: 1000px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 32px;
 }
 
-button {
-  background-color: #e94560; /* Красная кнопка */
-  color: white;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
+.app-header {
+  text-align: center;
 }
 
-button:hover:not(:disabled) {
-  background-color: #b7334a;
+.app-header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+  background: linear-gradient(90deg, var(--primary-accent), var(--text-primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-button:disabled {
-  background-color: #6c5a61;
-  cursor: not-allowed;
+.app-header p {
+  margin: 4px 0 0;
+  color: var(--text-secondary);
 }
 
-input[type='text'],
-input[type='number'] {
-  width: calc(100% - 22px);
-  padding: 10px;
-  margin-top: 8px;
-  margin-bottom: 15px;
-  border: 1px solid #3e2f5b; /* Темная рамка */
-  border-radius: 6px;
-  background-color: #2e243f; /* Темный фон инпута */
-  color: #e0e0e0;
-  font-size: 14px;
+/* 4. Секции и сетка */
+.section {
+  padding: 0; /* Убираем лишние отступы, теперь они внутри .card */
 }
 
-label {
-  display: block;
-  margin-bottom: 5px;
-  color: #ccc;
-  font-size: 14px;
+.card {
+  background-color: rgba(13, 15, 26, 0.5); /* Темнее чем фон */
+  border: 1px solid var(--border-color);
+  padding: 24px;
+  border-radius: 16px;
+  height: 100%;
 }
 
-.status-message {
-  margin-top: 15px;
-  padding: 10px;
-  border-radius: 6px;
-  font-size: 14px;
-}
-
-.status-message.success {
-  background-color: #28a74533; /* Зеленый для успеха */
-  color: #28a745;
-}
-
-.status-message.error {
-  background-color: #dc354533; /* Красный для ошибки */
-  color: #dc3545;
-}
-
-.status-message.info {
-  background-color: #007bff33; /* Синий для информации */
-  color: #007bff;
-}
-
-.address-display {
-  background-color: #2e243f;
-  padding: 10px;
-  border-radius: 6px;
-  word-break: break-all;
-  font-family: monospace;
-  margin-top: 10px;
-  font-size: 14px;
+.card h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 20px 0;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 30px;
+  gap: 24px;
 }
 
+/* 5. Интерактивные элементы: Кнопки, Инпуты */
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  background: linear-gradient(90deg, var(--primary-accent), var(--primary-accent-dark));
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.35);
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px 0 rgba(116, 79, 168, 0.45);
+}
+
+button:disabled {
+  background: #374151;
+  color: var(--text-tertiary);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+input[type='text'],
+input[type='number'] {
+  width: calc(100% - 24px);
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  font-size: 16px;
+  font-family: var(--font-sans);
+  transition: all 0.2s ease-in-out;
+}
+
+input[type='text']:focus,
+input[type='number']:focus {
+  outline: none;
+  border-color: var(--primary-accent);
+  box-shadow: 0 0 0 3px var(--glow-color);
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+
+/* 6. Уведомления и статусы */
+.status-message {
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid transparent;
+}
+
+.status-message.success {
+  background-color: rgba(34, 197, 94, 0.1);
+  border-color: var(--status-ready);
+  color: var(--status-ready);
+}
+.status-message.error {
+  background-color: rgba(239, 68, 68, 0.1);
+  border-color: var(--status-failed);
+  color: var(--status-failed);
+}
+.status-message.info {
+  background-color: rgba(59, 130, 246, 0.1);
+  border-color: #3B82F6;
+  color: #60A5FA;
+}
+
+.address-display {
+  background-color: var(--bg-dark);
+  padding: 10px 14px;
+  border-radius: 8px;
+  word-break: break-all;
+  font-family: monospace;
+  font-size: 14px;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+}
+
+/* 7. Список Ордеров */
 .order-list {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 16px;
 }
 
 .order-item {
-  background-color: #1a1a2e;
-  padding: 15px;
-  border-radius: 8px;
-  border: 1px solid #0f3460;
+  background: var(--bg-card);
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  transition: border-color 0.2s ease;
 }
 
-.order-item p {
-  margin: 5px 0;
-  font-size: 13px;
+.order-item:hover {
+  border-color: var(--primary-accent);
 }
 
-.order-item .status-badge {
-  display: inline-block;
-  padding: 4px 8px;
-  border-radius: 4px;
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.order-header p {
+  margin: 0;
+  color: var(--text-tertiary);
   font-size: 12px;
-  font-weight: bold;
-  margin-left: 5px;
+  font-family: monospace;
 }
 
-.order-item .status-badge.pending {
-  background-color: #ffc107; /* Желтый */
-  color: #333;
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+.status-badge.pending { background-color: rgba(245, 158, 11, 0.1); color: var(--status-pending); }
+.status-badge.ready { background-color: rgba(34, 197, 94, 0.1); color: var(--status-ready); }
+.status-badge.executed { background-color: rgba(139, 92, 246, 0.1); color: var(--status-executed); }
+.status-badge.failed { background-color: rgba(239, 68, 68, 0.1); color: var(--status-failed); }
+
+.order-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
 }
 
-.order-item .status-badge.ready {
-  background-color: #28a745; /* Зеленый */
-  color: white;
+.order-details p {
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  color: var(--text-secondary);
 }
-.order-item .status-badge.executed {
-  background-color: #6f42c1; /* Фиолетовый */
-  color: white;
-}
-.order-item .status-badge.failed {
-  background-color: #dc3545; /* Красный */
-  color: white;
+.order-details span {
+  color: var(--text-primary);
+  font-weight: 500;
 }
 
-@media (max-width: 768px) {
-  .App {
-    padding: 20px;
-  }
+.order-item button {
+  width: 100%;
+  margin-top: 16px;
+}
+
+/* 8. Адаптивность */
+@media (max-width: 800px) {
   .grid-container {
     grid-template-columns: 1fr;
+  }
+  body {
+    padding: 20px 10px;
+  }
+  .App {
+    padding: 24px;
   }
 }
